@@ -1,8 +1,6 @@
 import React from "react";
 import Component from './components/Component'
-
-//Provider
-import ThemeContext from "./contexts/theme";
+import { ThemeProvider } from "styled-components";
 
 const App = () => {
   const theme = {
@@ -16,10 +14,12 @@ const App = () => {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme }}>
+		<ThemeProvider theme={theme}>
       <div className="App">
         <Component/>
       </div>
-    </ThemeContext.Provider>);
+		</ThemeProvider>
+  );
+    
 }
 export default App;

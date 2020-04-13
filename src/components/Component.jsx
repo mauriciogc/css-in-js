@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
-import ThemeContext from "../contexts/theme";
-import styled, { ThemeProvider } from "styled-components";
+import React from "react";
+import styled from "styled-components";
 
 const Wrapper = styled.div`
 	padding: 40px;
@@ -42,24 +41,20 @@ const Link = styled.a`
 `;
 
 const Component = props => {
-	const { theme } = useContext(ThemeContext);
-
 	return (
-		<ThemeProvider theme={theme}>
-			<Wrapper>
-				<Title>Example component CSS</Title>
-				<Paragraph>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus,
-					temporibus labore voluptatibus aspernatur illo ad id sit nulla, a
-					atque doloribus itaque ab? Soluta, exercitationem illum provident quod
-					iure numquam?
-				</Paragraph>
-				<Button>I'm a button</Button>
-				<Link href="/#" onClick={e => e.preventDefault()}>
-					I'm a link
-				</Link>
-			</Wrapper>
-		</ThemeProvider>
+		<Wrapper>
+			<Title>Example component CSS</Title>
+			<Paragraph>
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus,
+				temporibus labore voluptatibus aspernatur illo ad id sit nulla, a atque
+				doloribus itaque ab? Soluta, exercitationem illum provident quod iure
+				numquam?
+			</Paragraph>
+			<Button>I'm a button</Button>
+			<Link href="/#" onClick={e => e.preventDefault()}>
+				I'm a link
+			</Link>
+		</Wrapper>
 	);
 };
 
