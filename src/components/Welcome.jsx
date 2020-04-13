@@ -1,18 +1,28 @@
-import React from "react";
+import React, { Fragment } from "react";
 import styled from "styled-components";
 
-const Title = styled.h1`
-	font-size: 30px;
-	text-align: center;
-	color: ${props => (props.primary ? "#e95678" : "#25b0bc")}; //(C)
+const Button = styled.button`
+	font-size: 14px;
+	font-weight: 400;
+	background-color: #4a430b;
+	border: none;
+	cursor: pointer;
+	color: #ffffff;
+	padding: 10px 20px;
+	border-radius: 4px;
 `;
 
-const Welcome = ({ name = "Stranger" }) => {
-	const isStranger = name === "Stranger"; //(A)
+const Link = styled(Button)`
+	color: #4a430b;
+	background-color: transparent;
+`;
+
+const Welcome = () => {
 	return (
-		<Title primary={isStranger}>
-			{/* (B) */}Hello {name}
-		</Title>
+		<Fragment>
+			<Button>Click me!!</Button>
+			<Link as="a">Give me click too!!</Link>
+		</Fragment>
 	);
 };
 
