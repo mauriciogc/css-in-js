@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import ThemeContext from "../contexts/theme";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
 	padding: 40px;
 	text-align: left;
-	background: #f7df1e;
-	color: #3c3a2d;
+	background-color: ${({ theme }) => theme.colors.background};
+	color: ${({ theme }) => theme.colors.primaryVariant};
 `;
 
 const Title = styled.h1`
@@ -19,14 +20,14 @@ const Paragraph = styled.p`
 const Button = styled.button`
 	font-size: 14px;
 	font-weight: 400;
-	background-color: #4a430b;
+	background-color: ${({ theme }) => theme.colors.primary};
 	border: none;
 	cursor: pointer;
-	color: #ffffff;
+	color: ${({ theme }) => theme.colors.secondaryVariant};
 	padding: 10px 20px;
 	border-radius: 4px;
 	&:hover {
-		background-color: #342f08;
+		background-color: ${({ theme }) => theme.colors.primaryVariant};
 	}
 `;
 const Link = styled.a`
@@ -35,14 +36,16 @@ const Link = styled.a`
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
-	color: #3c3a2d;
+	color: ${({ theme }) => theme.colors.primaryVariant};
 	padding: 10px 20px;
 	border-radius: 4px;
 `;
 
 const Component = props => {
+	const { theme } = useContext(ThemeContext);
+
 	return (
-		<Wrapper>
+		<Wrapper theme={theme}>
 			<Title>Example component CSS</Title>
 			<Paragraph>
 				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus,
@@ -50,8 +53,8 @@ const Component = props => {
 				doloribus itaque ab? Soluta, exercitationem illum provident quod iure
 				numquam?
 			</Paragraph>
-			<Button>I'm a button</Button>
-			<Link href="/#" onClick={e => e.preventDefault()}>
+			<Button theme={theme}>I'm a button</Button>
+			<Link href="/#" onClick={e => e.preventDefault()} theme={theme}>
 				I'm a link
 			</Link>
 		</Wrapper>
