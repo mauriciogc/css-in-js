@@ -10,18 +10,16 @@ const Button = styled.button`
 	color: #ffffff;
 	padding: 10px 20px;
 	border-radius: 4px;
-`;
 
-const Link = styled(Button)`
-	color: #4a430b;
-	background-color: transparent;
+	&:hover {
+		background-color: #342f08;
+	}
 `;
 
 const Welcome = () => {
 	return (
 		<Fragment>
 			<Button>Click me!!</Button>
-			<Link as="a">Give me click too!!</Link>
 		</Fragment>
 	);
 };
