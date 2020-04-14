@@ -9,7 +9,13 @@ const Button = styled.button({
 	cursor: "pointer",
 	color: "#ffffff",
 	padding: "10px 20px",
-	borderRadius: "4px"
+	borderRadius: "4px",
+	"&:hover": {
+		backgroundColor: "#342f08"
+	},
+	"@media (max-width: 420px)": {
+		fontSize: "50px"
+	}
 });
 
 const Link = styled(Button)({
