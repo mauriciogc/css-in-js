@@ -1,20 +1,40 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { FelaComponent } from "react-fela";
 
-const style = props => ({
-	fontSize: "30px",
-	textAlign: "center",
-	color: props.primary ? "#e95678" : "#25b0bc"
-});
+const button = {
+	fontSize: "14px",
+	fontWeight: "400",
+	backgroundColor: "#4a430b",
+	border: "none",
+	cursor: "pointer",
+	color: "#ffffff",
+	padding: "10px 20px",
+	borderRadius: "4px",
+	"&:hover": {
+		backgroundColor: "#342f08"
+	},
+	"@media (max-width: 420px)": {
+		fontSize: "50px"
+	}
+};
 
-const Title = props => <FelaComponent as="h1" {...props} />;
+const link = {
+	...button,
+	color: "#4a430b",
+	backgroundColor: "transparent",
+	"&:hover": {}
+};
 
-const Welcome = ({ name = "Stranger" }) => {
-	const isStranger = name === "Stranger";
+const Welcome = () => {
 	return (
-		<Title primary={isStranger} style={style}>
-			Hello {name}
-		</Title>
+		<Fragment>
+			<FelaComponent as="button" style={button}>
+				Click me!!
+			</FelaComponent>
+			<FelaComponent as="a" style={link}>
+				Give me click too!!
+			</FelaComponent>
+		</Fragment>
 	);
 };
 
