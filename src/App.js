@@ -1,7 +1,6 @@
 import React from "react";
 import Welcome from "./components/Welcome";
 import { createRenderer } from "fela";
-
 import { RendererProvider } from "react-fela";
 const renderer = createRenderer();
 
