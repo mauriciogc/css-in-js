@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-const Wrapper = styled.div({
+const Wrapper = styled.div(({ theme }) => ({
 	padding: "40px",
 	textAlign: "left",
-	backgroundColor: "#f7df1e",
-	color: "#3c3a2d"
-});
+	backgroundColor: theme.colors.background,
+	color: theme.colors.primaryVariant
+}));
 
 const Title = styled.h1({
 	fontSize: "30px",
@@ -16,29 +16,28 @@ const Paragraph = styled.p({
 	fontSize: "15px",
 	fontWeight: "300"
 });
-const Button = styled.button({
+const Button = styled.button(({ theme }) => ({
 	fontSize: "14px",
 	fontWeight: "400",
-	backgroundColor: "#4a430b",
+	backgroundColor: theme.colors.primary,
 	border: "none",
 	cursor: "pointer",
-	color: "#ffffff",
+	color: theme.colors.secondaryVariant,
 	padding: "10px 20px",
 	borderRadius: "4px",
 	"&:hover": {
-		backgroundColor: "#342f08"
+		backgroundColor: theme.colors.primaryVariant
 	}
-});
-const Link = styled.a({
-	fontSize: "14px",
-	fontWeight: "400",
+}));
+const Link = styled(Button)(({ theme }) => ({
 	backgroundColor: "transparent",
-	border: "none",
 	cursor: "pointer",
-	color: "#3c3a2d",
-	padding: "10px 20px",
-	borderRadius: "4px"
-});
+	color: theme.colors.primaryVariant,
+	borderRadius: "none",
+	"&:hover": {
+		backgroundColor: "transparent"
+	}
+}));
 
 const Component = props => {
 	return (
@@ -51,7 +50,7 @@ const Component = props => {
 				numquam?
 			</Paragraph>
 			<Button>I'm a button</Button>
-			<Link href="/#" onClick={e => e.preventDefault()}>
+			<Link as="a" href="/#" onClick={e => e.preventDefault()}>
 				I'm a link
 			</Link>
 		</Wrapper>
