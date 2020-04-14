@@ -1,20 +1,15 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-/*const Title = styled.h1`
-	font-size: 30px;
-	text-align: center;
-	color: #e95678;
-`;*/
-
-const Title = styled.h1({
+const Title = styled.h1(props => ({
 	fontSize: "30px",
 	textAlign: "center",
-	color: "#e95678"
-});
+	color: props.primary ? "#e95678" : "#25b0bc"
+}));
 
-const Welcome = () => {
-	return <Title>Hello World!</Title>;
+const Welcome = ({ name = "Stranger" }) => {
+	const isStranger = name === "Stranger";
+	return <Title primary={isStranger}>Hello {name}</Title>;
 };
 
 export default Welcome;
