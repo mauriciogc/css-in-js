@@ -1,5 +1,15 @@
-import React from 'react';
-import Welcome from './components/Welcome'
+import React from "react";
+import Welcome from "./components/Welcome";
+import { createRenderer } from "fela";
 
-const App = () => <div className="App"><Welcome /></div>;
+import { RendererProvider } from "react-fela";
+const renderer = createRenderer();
+
+const App = () => (
+	<RendererProvider renderer={renderer}>
+		<div className="App">
+			<Welcome />
+		</div>
+	</RendererProvider>
+);
 export default App;
