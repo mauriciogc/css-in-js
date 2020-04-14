@@ -1,17 +1,21 @@
 import React from "react";
 import { FelaComponent } from "react-fela";
 
-const style = {
+const style = props => ({
 	fontSize: "30px",
 	textAlign: "center",
-	color: "#e95678",
-	backgroundColor: "#ccff00"
-};
+	color: props.primary ? "#e95678" : "#25b0bc"
+});
 
-const Title = props => <FelaComponent style={style} as="h1" {...props} />;
+const Title = props => <FelaComponent as="h1" {...props} />;
 
-const Welcome = () => {
-	return <Title style={style}>Hello World!</Title>;
+const Welcome = ({ name = "Stranger" }) => {
+	const isStranger = name === "Stranger";
+	return (
+		<Title primary={isStranger} style={style}>
+			Hello {name}
+		</Title>
+	);
 };
 
 export default Welcome;

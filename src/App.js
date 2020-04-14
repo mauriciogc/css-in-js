@@ -8,6 +8,7 @@ const App = () => (
 	<RendererProvider renderer={renderer}>
 		<div className="App">
 			<Welcome />
+			<Welcome name="Mauricio" />
 		</div>
 	</RendererProvider>
 );
