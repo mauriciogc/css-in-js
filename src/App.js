@@ -1,5 +1,5 @@
 import React from "react";
-import Welcome from "./components/Welcome";
+import Component from "./components/Component";
 import { createRenderer } from "fela";
 import { RendererProvider } from "react-fela";
 const renderer = createRenderer();
@@ -7,7 +7,7 @@ const renderer = createRenderer();
 const App = () => (
 	<RendererProvider renderer={renderer}>
 		<div className="App">
-			<Welcome />
+			<Component />
 		</div>
 	</RendererProvider>
 );
