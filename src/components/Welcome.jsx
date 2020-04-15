@@ -1,29 +1,29 @@
-import React from "react";
-import { StyleSheet, css } from "aphrodite";
+import React, { Fragment } from "react";
+import { StyleSheet, css } from "aphrodite/no-important";
 
 const styles = StyleSheet.create({
-	h1: {
-		fontSize: "30px",
-		textAlign: "center"
+	button: {
+		fontSize: "14px",
+		fontWeight: "400",
+		backgroundColor: "#4a430b",
+		border: "none",
+		cursor: "pointer",
+		color: "#ffffff",
+		padding: "10px 20px",
+		borderRadius: "4px"
 	},
-	pink: {
-		color: "#e95678"
-	},
-	blue: {
-		color: "#25b0bc"
+	link: {
+		color: "#4a430b",
+		backgroundColor: "transparent"
 	}
 });
 
-const Welcome = ({ name = "Stranger" }) => {
+const Welcome = () => {
 	return (
-		<h1
-			className={css(
-				styles.h1,
-				name === "Stranger" ? styles.pink : styles.blue
-			)}
-		>
-			Hello {name}
-		</h1>
+		<Fragment>
+			<button className={css(styles.button)}>Click me!!</button>
+			<a className={css(styles.button, styles.link)}> Give me click too!!</a>
+		</Fragment>
 	);
 };
 

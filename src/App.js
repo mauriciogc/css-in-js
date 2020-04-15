@@ -1,8 +1,5 @@
 import React from 'react';
 import Welcome from './components/Welcome'
 
-const App = () => <div className="App">
-	<Welcome />
-	<Welcome name="Mauricio"/>
-	</div>;
+const App = () => <div className="App"><Welcome /></div>;
 export default App;
