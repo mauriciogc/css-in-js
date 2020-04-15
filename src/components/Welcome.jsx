@@ -10,11 +10,20 @@ const styles = StyleSheet.create({
 		cursor: "pointer",
 		color: "#ffffff",
 		padding: "10px 20px",
-		borderRadius: "4px"
+		borderRadius: "4px",
+		":hover": {
+			backgroundColor: "#342f08"
+		},
+		"@media (max-width: 420px)": {
+			fontSize: "50px"
+		}
 	},
 	link: {
 		color: "#4a430b",
-		backgroundColor: "transparent"
+		backgroundColor: "transparent",
+		":hover": {
+			backgroundColor: "transparent"
+		}
 	}
 });
 
