@@ -1,41 +1,41 @@
 import React, { Fragment } from "react";
-import { FelaComponent } from "react-fela";
+import { connect } from "react-fela";
 
-const button = {
-	fontSize: "14px",
-	fontWeight: "400",
-	backgroundColor: "#4a430b",
-	border: "none",
-	cursor: "pointer",
-	color: "#ffffff",
-	padding: "10px 20px",
-	borderRadius: "4px",
-	"&:hover": {
-		backgroundColor: "#342f08"
+const rules = () => ({
+	button: {
+		fontSize: "14px",
+		fontWeight: "400",
+		backgroundColor: "#4a430b",
+		border: "none",
+		cursor: "pointer",
+		color: "#ffffff",
+		padding: "10px 20px",
+		borderRadius: "4px",
+		"&:hover": {
+			backgroundColor: "#342f08"
+		},
+		"@media (max-width: 420px)": {
+			fontSize: "50px"
+		}
 	},
-	"@media (max-width: 420px)": {
-		fontSize: "50px"
-	}
-};
+	link: () => ({
+		...rules().button,
+		color: "#4a430b",
+		backgroundColor: "transparent",
+		"&:hover": {}
+	})
+});
 
-const link = {
-	...button,
-	color: "#4a430b",
-	backgroundColor: "transparent",
-	"&:hover": {}
-};
-
-const Welcome = () => {
+const Welcome = props => {
+	const { styles } = props;
 	return (
 		<Fragment>
-			<FelaComponent as="button" style={button}>
-				Click me!!
-			</FelaComponent>
-			<FelaComponent as="a" style={link}>
+			<button className={styles.button}>Click me!!</button>
+			<a className={styles.link} href="/#" onClick={e => e.preventDefault()}>
 				Give me click too!!
-			</FelaComponent>
+			</a>
 		</Fragment>
 	);
 };
 
-export default Welcome;
+export default connect(rules)(Welcome);
