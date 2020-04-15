@@ -1,12 +1,12 @@
 import React from "react";
-import { StyleSheet, css } from "aphrodite/no-important";
+import { withStyles } from "react-with-styles";
 
-const styles = StyleSheet.create({
+const styles = ({ colors }) => ({
 	wrapper: {
 		padding: "40px",
 		textAlign: "left",
-		backgroundColor: "#f7df1e",
-		color: "#3c3a2d"
+		backgroundColor: colors.background,
+		color: colors.primaryVariant
 	},
 	h1: {
 		fontSize: "30px",
@@ -19,40 +19,38 @@ const styles = StyleSheet.create({
 	button: {
 		fontSize: "14px",
 		fontWeight: "400",
-		backgroundColor: "#4a430b",
+		backgroundColor: colors.primary,
 		border: "none",
 		cursor: "pointer",
-		color: "#ffffff",
+		color: colors.secondaryVariant,
 		padding: "10px 20px",
 		borderRadius: "4px",
-		":hover": {
-			backgroundColor: "#342f08"
+		"&:hover": {
+			backgroundColor: colors.primaryVariant
 		}
 	},
 	a: {
 		backgroundColor: "transparent",
-		color: "#3c3a2d",
-		":hover": {
-			backgroundColor: "transparent"
-		}
+		color: colors.primaryVariant,
+		"&:hover": {}
 	}
 });
 
-const Component = props => {
+const Component = ({ css, styles }) => {
 	return (
-		<div className={css(styles.wrapper)}>
-			<h1 className={css(styles.h1)}>Example component CSS</h1>
-			<p className={css(styles.p)}>
+		<div {...css(styles.wrapper)}>
+			<h1 {...css(styles.h1)}>Example component CSS</h1>
+			<p {...css(styles.p)}>
 				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus,
 				temporibus labore voluptatibus aspernatur illo ad id sit nulla, a atque
 				doloribus itaque ab? Soluta, exercitationem illum provident quod iure
 				numquam?
 			</p>
-			<button className={css(styles.button)}>I'm a button</button>
+			<button {...css(styles.button)}>I'm a button</button>
 			<a
 				href="/#"
 				onClick={e => e.preventDefault()}
-				className={css(styles.button, styles.a)}
+				{...css(styles.button, styles.a)}
 			>
 				I'm a link
 			</a>
@@ -60,4 +58,4 @@ const Component = props => {
 	);
 };
 
-export default Component;
+export default withStyles(styles)(Component);

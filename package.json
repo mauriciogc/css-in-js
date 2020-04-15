@@ -9,7 +9,9 @@
     "aphrodite": "^2.4.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "react-with-styles": "^4.1.0",
+    "react-with-styles-interface-aphrodite": "^6.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
