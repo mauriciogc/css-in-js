@@ -1,14 +1,26 @@
 import React from "react";
 import Component from "./components/Component";
 import { createRenderer } from "fela";
-import { RendererProvider } from "react-fela";
+import { RendererProvider, ThemeProvider } from "react-fela";
 const renderer = createRenderer();
 
-const App = () => (
-	<RendererProvider renderer={renderer}>
+const App = () => {
+	
+  const theme = {
+    colors: {
+      primary: "#4A430B",
+      primaryVariant: "#3C3A2D",
+      background: "#F7DF1E",
+      secondary: "#F9EA6F",
+      secondaryVariant: "#FFFFFF"
+    }
+  };
+	return (<RendererProvider renderer={renderer}>
+		<ThemeProvider theme={theme}>
 		<div className="App">
 			<Component />
 		</div>
-	</RendererProvider>
-);
+		</ThemeProvider>
+	</RendererProvider>);
+};
 export default App;

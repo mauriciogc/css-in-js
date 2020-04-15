@@ -1,6 +1,42 @@
 import React from "react";
 import { connect } from "react-fela";
 
+const rules = () => ({
+	wrapper: ({ theme }) => ({
+		padding: "40px",
+		textAlign: "left",
+		backgroundColor: theme.colors.background,
+		color: theme.colors.primaryVariant
+	}),
+	h1: {
+		fontSize: "30px",
+		fontWeight: "900"
+	},
+	p: {
+		fontSize: "15px",
+		fontWeight: "300"
+	},
+	button: ({ theme }) => ({
+		fontSize: "14px",
+		fontWeight: "400",
+		backgroundColor: theme.colors.primary,
+		border: "none",
+		cursor: "pointer",
+		color: theme.colors.secondaryVariant,
+		padding: "10px 20px",
+		borderRadius: "4px",
+		"&:hover": {
+			backgroundColor: theme.colors.primaryVariant
+		}
+	}),
+	a: ({ theme }) => ({
+		...rules().button({ theme }),
+		backgroundColor: "transparent",
+		color: theme.colors.primaryVariant,
+		"&:hover": {}
+	})
+});
+
 const Component = props => {
 	const { styles } = props;
 	return (
@@ -19,40 +55,4 @@ const Component = props => {
 		</div>
 	);
 };
-
-const rules = props => ({
-	wrapper: {
-		padding: "40px",
-		textAlign: "left",
-		backgroundColor: "#f7df1e",
-		color: "#3c3a2d"
-	},
-	h1: {
-		fontSize: "30px",
-		fontWeight: "900"
-	},
-	p: {
-		fontSize: "15px",
-		fontWeight: "300"
-	},
-	button: {
-		fontSize: "14px",
-		fontWeight: "400",
-		backgroundColor: "#4a430b",
-		border: "none",
-		cursor: "pointer",
-		color: "#ffffff",
-		padding: "10px 20px",
-		borderRadius: "4px",
-		"&:hover": {
-			backgroundColor: "#342f08"
-		}
-	},
-	a: () => ({
-		...rules().button,
-		backgroundColor: "transparent",
-		color: "#3c3a2d"
-	})
-});
-
 export default connect(rules)(Component);
