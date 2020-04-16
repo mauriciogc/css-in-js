@@ -9,19 +9,30 @@ const Button = styled("button", {
 	cursor: "pointer",
 	color: "#ffffff",
 	padding: "10px 20px",
-	borderRadius: "4px"
+	borderRadius: "4px",
+	":hover": {
+		backgroundColor: "#342f08"
+	},
+	"@media (max-width: 420px)": {
+		fontSize: "50px"
+	}
 });
 
 const Link = withStyle(Button, {
 	color: "#4a430b",
-	backgroundColor: "transparent"
+	backgroundColor: "transparent",
+	":hover": {
+		backgroundColor: "transparent"
+	}
 });
 
 const Welcome = () => {
 	return (
 		<Fragment>
 			<Button>Click me!!</Button>
-			<Link $as="a">Give me click too!!</Link>
+			<Link $as="a" href="/#" onClick={e => e.preventDefault()}>
+				Give me click too!!
+			</Link>
 		</Fragment>
 	);
 };
