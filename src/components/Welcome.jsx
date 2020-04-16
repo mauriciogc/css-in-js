@@ -5,13 +5,14 @@ const useStyles = createUseStyles({
 	h1: {
 		fontSize: "30px",
 		textAlign: "center",
-		color: "#e95678"
+		color: props => (props.primary ? "#e95678" : "#25b0bc")
 	}
 });
 
-const Welcome = () => {
-	const classes = useStyles();
+const Welcome = ({ name = "Stranger" }) => {
+	const isStranger = name === "Stranger"; //(A)
+	const classes = useStyles({ primary: isStranger });
 
-	return <h1 className={classes.h1}>Hello World!</h1>;
+	return <h1 className={classes.h1}>Hello {name}</h1>;
 };
 export default Welcome;
