@@ -21,7 +21,7 @@ const Welcome = () => {
 	return (
 		<Fragment>
 			<Button>Click me!!</Button>
-			<Link>Give me click too!!</Link>
+			<Link $as="a">Give me click too!!</Link>
 		</Fragment>
 	);
 };
