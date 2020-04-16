@@ -1,9 +1,9 @@
 import React from "react";
-import Welcome from "./components/Welcome";
+import Component from "./components/Component";
 
 const App = () => (
 	<div className="App">
-		<Welcome />
+		<Component />
 	</div>
 );
 export default App;
