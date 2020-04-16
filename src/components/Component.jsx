@@ -1,12 +1,13 @@
 import React from "react";
-import { withStyle, styled } from "styletron-react";
+import { withStyle } from "styletron-react";
+import { styled } from "../contexts/context";
 
-const Wrapper = styled("div", {
+const Wrapper = styled("div", ({ $theme }) => ({
 	padding: "40px",
 	textAlign: "left",
-	backgroundColor: "#f7df1e",
-	color: "#3c3a2d"
-});
+	backgroundColor: $theme.colors.background,
+	color: $theme.colors.primary
+}));
 
 const Title = styled("h1", {
 	fontSize: "30px",
@@ -16,30 +17,30 @@ const Paragraph = styled("p", {
 	fontSize: "15px",
 	fontWeight: "300"
 });
-const Button = styled("button", {
+const Button = styled("button", ({ $theme }) => ({
 	fontSize: "14px",
 	fontWeight: "400",
-	backgroundColor: "#4a430b",
+	backgroundColor: $theme.colors.primary,
 	border: "none",
 	cursor: "pointer",
-	color: "#ffffff",
+	color: $theme.colors.secondaryVariant,
 	padding: "10px 20px",
 	borderRadius: "4px",
 	":hover": {
-		backgroundColor: "#342f08"
+		backgroundColor: $theme.colors.primaryVariant
 	}
-});
-const Link = withStyle(Button, {
+}));
+const Link = withStyle(Button, ({ $theme }) => ({
 	backgroundColor: "transparent",
-	color: "#3c3a2d",
+	color: $theme.colors.primaryVariant,
 	":hover": {
 		backgroundColor: "transparent"
 	}
-});
+}));
 
 const Component = props => {
 	return (
-		<Wrapper>
+		<Wrapper $aaa="yes">
 			<Title>Example component CSS</Title>
 			<Paragraph>
 				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus,
