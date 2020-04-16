@@ -1,9 +1,24 @@
 import React from "react";
 import Component from "./components/Component";
+import { ThemeProvider } from "react-jss";
+
+
+const theme = {
+  colors: {
+		primary: "#4A430B",
+		primaryVariant: "#3C3A2D",
+		background: "#F7DF1E",
+		secondary: "#F9EA6F",
+		secondaryVariant: "#FFFFFF"
+	}
+}
+
 
 const App = () => (
-	<div className="App">
-		<Component />
-	</div>
+	<ThemeProvider theme={theme}>
+		<div className="App">
+			<Component />
+		</div>
+	</ThemeProvider>
 );
 export default App;

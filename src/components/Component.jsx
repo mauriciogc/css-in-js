@@ -1,12 +1,12 @@
 import React from "react";
-import { createUseStyles } from "react-jss";
+import { useTheme, createUseStyles } from "react-jss";
 
-const useStyles = createUseStyles({
+const useStyles = createUseStyles(({ colors }) => ({
 	wrapper: {
 		padding: "40px",
 		textAlign: "left",
-		backgroundColor: "#f7df1e",
-		color: "#3c3a2d"
+		backgroundColor: colors.background,
+		color: colors.primaryVariant
 	},
 	h1: {
 		fontSize: "30px",
@@ -19,27 +19,28 @@ const useStyles = createUseStyles({
 	button: {
 		fontSize: "14px",
 		fontWeight: "400",
-		backgroundColor: "#4a430b",
+		backgroundColor: colors.primary,
 		border: "none",
 		cursor: "pointer",
-		color: "#ffffff",
+		color: colors.secondaryVariant,
 		padding: "10px 20px",
 		borderRadius: "4px",
-		":hover": {
-			backgroundColor: "#342f08"
+		"&:hover": {
+			backgroundColor: colors.primaryVariant
 		}
 	},
 	a: {
 		composes: "$button",
 		backgroundColor: "transparent",
-		color: "#3c3a2d",
-		":hover": {
+		color: colors.primaryVariant,
+		"&:hover": {
 			backgroundColor: "transparent"
 		}
 	}
-});
+}));
 const Component = props => {
-	const classes = useStyles();
+	const theme = useTheme();
+	const classes = useStyles({ theme });
 	return (
 		<div className={classes.wrapper}>
 			<h1 className={classes.h1}>Example component CSS</h1>
