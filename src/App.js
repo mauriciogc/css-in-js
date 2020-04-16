@@ -9,7 +9,6 @@ const App = () => (
 	<StyletronProvider value={engine}>
 		<div className="App">
 			<Welcome />
-			<Welcome name="Mauricio" />
 		</div>
 	</StyletronProvider>
 );

@@ -1,15 +1,29 @@
-import React from "react";
-import { styled } from "styletron-react";
+import React, { Fragment } from "react";
+import { withStyle, styled } from "styletron-react";
 
-const Title = styled("h1", props => ({
-	fontSize: "30px",
-	textAlign: "center",
-	color: props.$primary ? "#e95678" : "#25b0bc"
-}));
+const Button = styled("button", {
+	fontSize: "14px",
+	fontWeight: "400",
+	backgroundColor: "#4a430b",
+	border: "none",
+	cursor: "pointer",
+	color: "#ffffff",
+	padding: "10px 20px",
+	borderRadius: "4px"
+});
 
-const Welcome = ({ name = "Stranger" }) => {
-	const isStranger = name === "Stranger";
-	return <Title $primary={isStranger}>Hello {name}</Title>;
+const Link = withStyle(Button, {
+	color: "#4a430b",
+	backgroundColor: "transparent"
+});
+
+const Welcome = () => {
+	return (
+		<Fragment>
+			<Button>Click me!!</Button>
+			<Link>Give me click too!!</Link>
+		</Fragment>
+	);
 };
 
 export default Welcome;
