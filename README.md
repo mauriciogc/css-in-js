@@ -1,3 +1,5 @@
+![Example](https://github.com/mauriciogc/css-in-js/blob/master/img/example.png)
+
 ## You can see the tutorial here
 --- Coming soon ---
 
