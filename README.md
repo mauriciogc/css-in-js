@@ -1,7 +1,7 @@
 ![Example](https://github.com/mauriciogc/css-in-js/blob/master/img/example.png)
 
 ## You can see the tutorial here
-![Tutorial](https://medium.com/@mauriciogc/react-formas-de-dise%C3%B1ar-componentes-de-react-desde-estilos-en-l%C3%ADnea-hasta-css-in-js-5cafe15b13fa)
+[Tutorial](https://medium.com/@mauriciogc/react-formas-de-dise%C3%B1ar-componentes-de-react-desde-estilos-en-l%C3%ADnea-hasta-css-in-js-5cafe15b13fa)
 
 ## You can see a live demos
 * [Inline styles](https://codesandbox.io/s/react-inline-styles-7cwo8)
